@@ -1,3 +1,5 @@
-QUnit.test( "hello test", function( assert ) {
-  assert.ok( 1 == "1", "Passed!" );
+QUnit.test("inserting into linkedlist", function (assert) {
+    var cities = new LinkedList();
+    cities.insert("New York", "head");
+    assert.equal(cities.size(), 1, "It passed!");
 });

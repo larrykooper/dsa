@@ -1,0 +1,17 @@
+{
+    "name": "dsa",
+    "version": "0.0.2",
+    "description": "Implement data structures and algorithms in JavaScript",
+    "author": "Larry Kooper <larry.kooper@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/larrykooper/dsa.git"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "qunit": "^0.7.5"
+  }
+}
