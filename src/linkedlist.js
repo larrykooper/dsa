@@ -34,6 +34,27 @@ LinkedList.prototype.findPrevious = function(item) {
     return currNode;
 };
 
+// Inspired by Skiena page 69
+// Recursive implementation of find
+doFindRecurs = function(node, item) {
+    if (node == null) {
+        return null;
+    }
+    if (node.element == item) {
+        return node;
+    } else {
+        return (doFindRecurs(node.next, item));
+    }
+}
+
+// findRecurs
+// recursive implementation of find
+// Inspired by Skiena page 69
+findRecurs = function(list, item) {
+    var firstNode = list.head;
+    return (doFindRecurs(firstNode, item));
+}
+
 LinkedList.prototype.insert = function(newElement, item) {
     var newNode = new Node(newElement);
     var current = this.find(item);
