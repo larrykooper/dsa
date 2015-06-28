@@ -12,6 +12,6 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "qunit": "^0.7.5"
-  }
+        "qunit": "^0.7.6"
+    }
 }
