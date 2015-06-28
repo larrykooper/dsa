@@ -24,6 +24,7 @@ describe('LinkedList', function () {
             assert.equal(cities.size(), 2);
         });
     });
+
     describe("#findRecurs()", function () {
         it("should find an item that is there", function () {
             var result = findRecurs(cities, "Chicago");
