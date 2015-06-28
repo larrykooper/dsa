@@ -7,11 +7,5 @@
         "type": "git",
         "url": "git://github.com/larrykooper/dsa.git"
     },
-    "scripts": {
-        "start": "node server.js"
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "qunit": "^0.7.6"
-    }
+    "license": "MIT"
 }

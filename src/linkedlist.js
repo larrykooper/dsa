@@ -93,3 +93,5 @@ LinkedList.prototype.size = function () {
     }
     return theSize;
 }
+
+module.exports = LinkedList;
