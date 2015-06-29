@@ -33,7 +33,10 @@ var profireEnergy = {
 describe('HashTable', function () {
     describe("#insert()", function() {
         it("should insert stuff", function () {
-            hashtable.insert('New York Times', nyt);  //lkhere
+            var d;
+            hashtable.insert('New York Times', nyt);
+            d = hashtable.get('New York Times');
+            assert.deepEqual(d, nyt)
         });
     });
 });

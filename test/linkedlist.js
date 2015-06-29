@@ -9,14 +9,23 @@ var companies = new LinkedList();
 describe('LinkedList', function () {
     beforeEach(function() {
         cities.clear();
-        cities.insert("New York", "head");
-        cities.insert("Chicago", "New York");
-        cities.insert("Los Angeles", "Chicago");
+        cities.insertAfter("New York", "head");
+        cities.insertAfter("Chicago", "New York");
+        cities.insertAfter("Los Angeles", "Chicago");
     });
 
-    describe("#insert()", function () {
-        it("should insert stuff", function () {
+    describe("#insertAfter()", function () {
+        it("should insert primitives", function () {
             assert.equal(cities.size(), 3);
+        });
+    });
+
+    describe("#insertAtBeginning", function () {
+        it("should insert a node at beginning", function () {
+            var retval;
+            cities.insertAtBeginning("Brooklyn");
+            retval = cities.find("Brooklyn");
+            assert.strictEqual(retval.element, "Brooklyn");
         });
     });
 
@@ -51,7 +60,7 @@ describe('LinkedList', function () {
 
 describe('LinkedList with External Storage', function () {
 
-    describe("#insert", function () {
+    describe("#insertAfter", function () {
         it("should allow you to insert objects", function () {
 
         var nyt = {
@@ -79,9 +88,9 @@ describe('LinkedList with External Storage', function () {
             employees: 150
         };
 
-        companies.insert(nyt, "head");
-        companies.insert(marybethNyc, nyt);
-        companies.insert(profireEnergy, marybethNyc);
+        companies.insertAfter(nyt, "head");
+        companies.insertAfter(marybethNyc, nyt);
+        companies.insertAfter(profireEnergy, marybethNyc);
         assert.equal(companies.size(), 3);
         });
     });

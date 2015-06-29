@@ -55,7 +55,7 @@ doFindRecurs = function(node, item) {
     } else {
         return (doFindRecurs(node.next, item));
     }
-}
+};
 
 // findRecurs
 // recursive implementation of find
@@ -63,16 +63,25 @@ doFindRecurs = function(node, item) {
 findRecurs = function(list, item) {
     var firstNode = list.head;
     return (doFindRecurs(firstNode, item));
-}
+};
 
-// insert
+// insertAfter
 // inserts a node containing newElement after the
 // node containing item
-LinkedList.prototype.insert = function(newElement, item) {
+LinkedList.prototype.insertAfter = function(newElement, item) {
     var newNode = new Node(newElement);
     var current = this.find(item);
     newNode.next = current.next;
     current.next = newNode;
+};
+
+//insertAtBeginning
+// inserts a node containing newElement at the beginning of the list
+LinkedList.prototype.insertAtBeginning = function(newElement) {
+    var newNode = new Node(newElement);
+    var firstNode = this.head;
+    newNode.next = firstNode.next;
+    firstNode.next = newNode;
 };
 
 // display
