@@ -3,6 +3,8 @@
 // But if 'element' is an object, then this is a linked list with external storage
 // Because objects are passed by reference in JS, so 'element' would be a pointer to the object
 
+// There will just be a pointer to the list, not a node containing the word 'head'
+
 //
 function Node (element) {
     this.element = element;
@@ -10,13 +12,13 @@ function Node (element) {
 }
 
 LinkedList = function () {
-     this.head = new Node("head");
+     this.head = null;
 }
 
 // clear
 // removes all nodes
 LinkedList.prototype.clear = function() {
-    this.head = new Node("head");
+    this.head = null;
 }
 
 // find
@@ -80,8 +82,12 @@ LinkedList.prototype.insertAfter = function(newElement, item) {
 LinkedList.prototype.insertAtBeginning = function(newElement) {
     var newNode = new Node(newElement);
     var firstNode = this.head;
-    newNode.next = firstNode.next;
-    firstNode.next = newNode;
+    if (firstNode === null) {
+        this.head = newNode;
+    } else {
+        newNode.next = firstNode.next;
+        firstNode.next = newNode;
+    }
 };
 
 // display
@@ -107,13 +113,17 @@ LinkedList.prototype.remove = function(item) {
 // size
 // returns the size of the list
 LinkedList.prototype.size = function () {
-    var theSize = 0;
+    var theSize = 1; // to count the first node
     var currNode = this.head;
-    while (!(currNode.next == null)) {
-        theSize += 1;
-        currNode = currNode.next;
+    if (this.head === null) {
+        return 0;
+    } else {
+        while (!(currNode.next == null)) {
+            theSize += 1;
+            currNode = currNode.next;
+        }
+        return theSize;
     }
-    return theSize;
 }
 
 module.exports = LinkedList;
