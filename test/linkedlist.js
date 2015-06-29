@@ -27,6 +27,13 @@ describe('LinkedList', function () {
         });
     });
 
+    describe("#find()", function () {
+        it("should return null if key not found", function () {
+            var retval = cities.find("Houston");
+            assert.deepEqual(retval, null);
+        });
+    });
+
     describe("#findRecurs()", function () {
         it("should find an item that is there", function () {
             var result = findRecurs(cities, "Chicago");
@@ -62,7 +69,7 @@ describe('LinkedList with External Storage', function () {
                 zipcode: "10021"
             },
             employees: 2
-        }
+        };
         var profireEnergy = {
             name: "Profire Energy",
             address: {
@@ -70,7 +77,7 @@ describe('LinkedList with External Storage', function () {
                 zipcode: "84042"
             },
             employees: 150
-        }
+        };
 
         companies.insert(nyt, "head");
         companies.insert(marybethNyc, nyt);

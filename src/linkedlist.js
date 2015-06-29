@@ -24,10 +24,14 @@ LinkedList.prototype.clear = function() {
 //
 LinkedList.prototype.find = function(item) {
     var currNode = this.head;
-    while (currNode.element != item) {
+    while ((currNode.element != item) && !(currNode.next == null)) {
         currNode = currNode.next;
     }
-    return currNode;
+    if (currNode.element === item) {
+        return currNode;
+    } else {
+        return null;
+    }
 };
 
 // findPrevious

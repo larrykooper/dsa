@@ -1,7 +1,7 @@
 var b = 137;
 
 HashTable = function () {
-    this.bucketTable = new Array(b); // buckets
+    this.table = new Array(b); // buckets
 }
 
 HashTable.prototype.insert = function(key, data) {
