@@ -4,6 +4,8 @@ var assert = require("assert");
 
 var cities = new LinkedList();
 
+var companies = new LinkedList();
+
 describe('LinkedList', function () {
     beforeEach(function() {
         cities.clear();
@@ -39,3 +41,43 @@ describe('LinkedList', function () {
     });
 
 });
+
+describe('LinkedList with External Storage', function () {
+
+    describe("#insert", function () {
+        it("should allow you to insert objects", function () {
+
+        var nyt = {
+            name: "New York Times",
+            address: {
+                street: "620 8th Avenue",
+                zipcode: "10018"
+            },
+            employees: 2000
+        };
+        var marybethNyc = {
+            name: "marybeth.nyc",
+            address: {
+                street: "300 East 71st St",
+                zipcode: "10021"
+            },
+            employees: 2
+        }
+        var profireEnergy = {
+            name: "Profire Energy",
+            address: {
+                street: "321 S 1250 W",
+                zipcode: "84042"
+            },
+            employees: 150
+        }
+
+        companies.insert(nyt, "head");
+        companies.insert(marybethNyc, nyt);
+        companies.insert(profireEnergy, marybethNyc);
+        assert.equal(companies.size(), 3);
+        });
+    });
+
+});
+

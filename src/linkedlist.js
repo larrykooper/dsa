@@ -1,3 +1,9 @@
+// NOTE
+// If element is a primitive, the list only stores one value
+// But if 'element' is an object, then this is a linked list with external storage
+// Because objects are passed by reference in JS, so 'element' would be a pointer to the object
+
+//
 function Node (element) {
     this.element = element;
     this.next = null;
