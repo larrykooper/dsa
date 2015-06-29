@@ -55,6 +55,9 @@ findRecurs = function(list, item) {
     return (doFindRecurs(firstNode, item));
 }
 
+// insert
+// inserts a node containing newElement after the
+// node containing item
 LinkedList.prototype.insert = function(newElement, item) {
     var newNode = new Node(newElement);
     var current = this.find(item);
