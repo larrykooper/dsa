@@ -1,21 +1,26 @@
-// graph.js
-//
-// Compare Michael McMillan,
-// _Data Structures & Algorithms with Javascript_
-// O'Reilly Media, Sebastopol, CA, 2014
-//  pp 141ff
-//
+/**
+ * graph.js
+ *
+ * Compare Michael McMillan,
+ * _Data Structures & Algorithms with Javascript_
+ * O'Reilly Media, Sebastopol, CA, 2014
+ *  pp 141ff
+ *
+ * We use the adjacency-list representation
+ * for graphs
+ *
+ * It is an array of adjacency lists
+ *
+ * We will represent each adjacency list
+ * as an array
+**/
 
-// We use the adjacency-list representation
-// for graphs
-
-// It is an array of adjacency lists
-//
-// We will represent each adjacency list
-// as an array
-//
-// Constructor for Graph
-//
+/**
+ *
+ * Constructor for Graph
+ *
+ *
+**/
 Graph = function (numberOfVertices) {
     var i;
     // vertices is number of vertices
@@ -26,7 +31,7 @@ Graph = function (numberOfVertices) {
     // adj is the adjacency list
     this.adj = [];
 
-    // the marked array
+    // the marked array [its indices match the adj array]
     // contains which vertices have been visited
     this.marked = [];
 
@@ -63,5 +68,32 @@ Graph.prototype.showGraph = function() {
         process.stdout.write("\n");
     }
 };
+
+/**
+ * Traverse the graph using depth-first search
+ *   Uses recursion
+ * From Aho, Hopcroft, and Ullman, Data Structures and Algorithms, p. 216
+ *
+ *  Time is O(number of edges)
+ *
+ * @method dfs
+ * @params {integer} v: vertex to start depth-first-search at
+ **/
+Graph.prototype.dfs = function(v) {
+    var w;
+    var adjList = this.adj[v];
+    // we visit v
+    this.marked[v] = true;
+    if (adjList != undefined) {
+        console.log("Visited vertex: " + v);
+    }
+    // Now for every unvisited vertex in v's adjacency list
+    // We recursively call dfs on it
+    for (w = 0; w < adjList.length; w++) {
+        if (!this.marked[adjList[w]]) {
+            this.dfs(adjList[w]);
+        }
+    }
+}
 
 module.exports = Graph;
