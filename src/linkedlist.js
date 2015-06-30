@@ -21,11 +21,20 @@ LinkedList.prototype.clear = function() {
     this.head = null;
 }
 
+// isEmpty
+// returns boolean
+LinkedList.prototype.isEmpty = function () {
+    return (this.head == null);
+}
+
 // find
 // finds the first node that contains a specified key
 //
 LinkedList.prototype.find = function(item) {
     var currNode = this.head;
+    if (this.isEmpty()) {
+        return null;
+    }
     while ((currNode.element != item) && !(currNode.next == null)) {
         currNode = currNode.next;
     }
@@ -33,6 +42,27 @@ LinkedList.prototype.find = function(item) {
         return currNode;
     } else {
         return null;
+    }
+};
+
+// findPos
+// finds the position of a specified key
+// 1-based
+// returns -1 if not found
+LinkedList.prototype.findPos = function(key) {
+    var currNode = this.head;
+    var currPos = 1;
+    if (this.isEmpty()) {
+        return -1;
+    }
+    while ((currNode.element != key) && !(currNode.next == null)) {
+        currPos += 1;
+        currNode = currNode.next;
+    }
+    if (currNode.element === key) {
+        return currPos;
+    } else {
+        return -1;
     }
 };
 

@@ -3,7 +3,7 @@ var LinkedList = require('../src/linkedlist');
 var assert = require("assert");
 
 var cities = new LinkedList();
-
+var empty = new LinkedList();
 var companies = new LinkedList();
 
 describe('LinkedList', function () {
@@ -41,6 +41,15 @@ describe('LinkedList', function () {
             var retval = cities.find("Houston");
             assert.deepEqual(retval, null);
         });
+        it("should return null if list empty", function () {
+            assert.deepEqual(empty.find("foo"), null);
+        });
+    });
+
+    describe("#findPos()", function () {
+        it("should find position if key found", function () {
+            assert.strictEqual(cities.findPos("Chicago"), 2);
+        });
     });
 
     describe("#findRecurs()", function () {
@@ -49,8 +58,7 @@ describe('LinkedList', function () {
             assert.ok(result);
         });
         it("should fail with empty list", function () {
-            var dumb = new LinkedList();
-            var result = findRecurs(dumb, "Houston");
+            var result = findRecurs(empty, "Houston");
             assert(!result);
         });
 
@@ -62,7 +70,6 @@ describe('LinkedList', function () {
             assert.deepEqual(result, null);
         });
         it("should return null if list is empty", function () {
-            var empty = new LinkedList();
             var result = empty.findPrevious("Topeka");
             assert.deepEqual(result, null);
         });
