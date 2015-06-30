@@ -3,6 +3,7 @@ var chai = require('chai');
 var assert = chai.assert;
 
 var s = new Stack();
+var empty = new Stack();
 
 describe('Stack', function () {
 
@@ -23,6 +24,16 @@ describe('Stack', function () {
         it('should return the top item of the stack', function () {
             assert.strictEqual(s.peek(),'Bryan');
         });
+        it('should return null if stack is empty', function () {
+            assert.isNull(empty.peek());
+        });
     });
+
+    describe('pop', function () {
+        it('should return null if the stack is empty', function () {
+            assert.isNull(empty.pop());
+        });
+    });
+
 
 });
