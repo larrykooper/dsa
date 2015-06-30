@@ -64,6 +64,13 @@ describe('LinkedList', function () {
 
     });
 
+    describe("#insertAfter()", function () {
+        it("should insert a node at the right position", function () {
+            cities.insertAfter("Paris", "Chicago");
+            assert.strictEqual(cities.findPos("Paris"), 3);
+        });
+    });
+
     describe("#findPrevious()", function () {
         it("should return null if the item not present", function () {
             var result = cities.findPrevious("Houston");
