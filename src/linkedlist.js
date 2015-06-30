@@ -8,8 +8,13 @@ function Node (key, refToData) {
     this.key = key;
     this.refToData = refToData;
     this.next = null;
-}
+};
 
+/**
+ * Constructor for LinkedList
+ *
+ *
+**/
 LinkedList = function () {
      this.head = null;
 }
@@ -65,10 +70,15 @@ LinkedList.prototype.findPos = function(key) {
     }
 };
 
-// findPrevious
-// returns the node just before the first one containing key 'key'
-// if key not present, returns null
-// if key is first one, returns the string 'first'
+/**
+ * Finds the node just before the first one containing key 'key'
+ *
+ * @method findPrevious
+ * @param {string} key
+ * @return {Object} The node just before the first one containing key 'key'
+ *         If key is first one, returns the string 'first'
+ *         If key not present, returns null
+**/
 LinkedList.prototype.findPrevious = function(key) {
     var currNode, prevNode;
     if (this.isEmpty()) {
