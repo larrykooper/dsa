@@ -5,7 +5,7 @@ var tableLength = 137;
 HashTable = function () {
     var i;
     this.table = new Array(tableLength);
-    for (i = 0; i < this.table.length; i++) {
+    for (i = 0; i < tableLength; i++) {
         this.table[i] = new LinkedList();
     }
 }
@@ -48,6 +48,16 @@ HashTable.prototype.get = function(key) {
         return node.refToData;
     } else {
         return null;
+    }
+}
+
+HashTable.prototype.showDistro = function () {
+    var i, bucket;
+    for (i = 0; i < tableLength; i++) {
+        bucket = this.table[i];
+        process.stdout.write(i.toString()+' ');
+        bucket.display();
+        process.stdout.write("\n");
     }
 }
 

@@ -125,7 +125,7 @@ LinkedList.prototype.insertAtBeginning = function(newKey, newData) {
 };
 
 // display
-// displays the entire list
+// displays the keys [not the data] of the entire list
 //
 LinkedList.prototype.display = function() {
     var currNode = this.head;
