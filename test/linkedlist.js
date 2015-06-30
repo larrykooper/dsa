@@ -61,13 +61,16 @@ describe('LinkedList', function () {
             var result = findRecurs(empty, "Houston");
             assert(!result);
         });
-
     });
 
     describe("#insertAfter()", function () {
         it("should insert a node at the right position", function () {
             cities.insertAfter("Paris", "Chicago");
             assert.strictEqual(cities.findPos("Paris"), 3);
+        });
+        it("should return false if searched item not found", function () {
+            var retval = cities.insertAfter("London", "Rome");
+            assert(!retval);
         });
     });
 
