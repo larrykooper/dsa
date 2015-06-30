@@ -56,6 +56,18 @@ describe('LinkedList', function () {
 
     });
 
+    describe("#findPrevious()", function () {
+        it("should return null if the item not present", function () {
+            var result = cities.findPrevious("Houston");
+            assert.deepEqual(result, null);
+        });
+        it("should return null if list is empty", function () {
+            var empty = new LinkedList();
+            var result = empty.findPrevious("Topeka");
+            assert.deepEqual(result, null);
+        });
+    });
+
     describe("#size()", function () {
         it("should give a correct result for a list of size 1", function () {
             var bitty = new LinkedList();

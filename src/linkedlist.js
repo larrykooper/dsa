@@ -40,7 +40,7 @@ LinkedList.prototype.find = function(item) {
 // returns the node just before the first one containing key 'item'
 LinkedList.prototype.findPrevious = function(item) {
     var currNode = this.head;
-    while (!(currNode.next == null) && (currNode.next.element != item)) {
+    while (!(currNode == null) && (currNode.element != item)) {
         currNode = currNode.next;
     }
     return currNode;
