@@ -14,8 +14,6 @@ graph.addEdge(0,2);
 graph.addEdge(0,3);
 graph.addEdge(2,4);
 graph.addEdge(3,5);
-//graph.showGraph();
-//graph.dfs(0);
 
 describe('graph dfs', function () {
 
