@@ -1,7 +1,13 @@
+//var LinkedList = require('linkedlist');
+
 var b = 137;
 
 HashTable = function () {
-    this.table = new Array(b); // buckets
+    var i;
+    this.table = new Array(b);
+    for (i = 0; i < this.table.length; i++) {
+//        this.table[i] = new LinkedList();
+    }
 }
 
 HashTable.prototype.insert = function(key, data) {

@@ -9,9 +9,9 @@ var companies = new LinkedList();
 describe('LinkedList', function () {
     beforeEach(function() {
         cities.clear();
-        cities.insertAtBeginning("Los Angeles");
-        cities.insertAtBeginning("Chicago");
-        cities.insertAtBeginning("New York");
+        cities.insertAtBeginning("Los Angeles", {});
+        cities.insertAtBeginning("Chicago", {});
+        cities.insertAtBeginning("New York", {});
     });
 
     describe("#insertAtBeginning()", function () {
@@ -23,9 +23,9 @@ describe('LinkedList', function () {
     describe("#insertAtBeginning", function () {
         it("should insert a node at beginning", function () {
             var retval;
-            cities.insertAtBeginning("Brooklyn");
-            retval = cities.find("Brooklyn");
-            assert.strictEqual(retval.element, "Brooklyn");
+            cities.insertAtBeginning("Brooklyn", {});
+            retval = cities.findPos("Brooklyn", {});
+            assert.strictEqual(retval, 1);
         });
     });
 
@@ -65,11 +65,11 @@ describe('LinkedList', function () {
 
     describe("#insertAfter()", function () {
         it("should insert a node at the right position", function () {
-            cities.insertAfter("Paris", "Chicago");
+            cities.insertAfter("Paris", {}, "Chicago");
             assert.strictEqual(cities.findPos("Paris"), 3);
         });
         it("should return false if searched item not found", function () {
-            var retval = cities.insertAfter("London", "Rome");
+            var retval = cities.insertAfter("London", {}, "Rome");
             assert(!retval);
         });
     });
@@ -125,9 +125,9 @@ describe('LinkedList with External Storage', function () {
             employees: 150
         };
 
-        companies.insertAtBeginning(nyt);
-        companies.insertAtBeginning(marybethNyc);
-        companies.insertAtBeginning(profireEnergy);
+        companies.insertAtBeginning('New York Times', nyt);
+        companies.insertAtBeginning('marybeth.nyc', marybethNyc);
+        companies.insertAtBeginning('Profire Energy',profireEnergy);
         assert.equal(companies.size(), 3);
         });
     });
