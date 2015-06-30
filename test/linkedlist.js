@@ -39,10 +39,10 @@ describe('LinkedList', function () {
     describe("#find()", function () {
         it("should return null if key not found", function () {
             var retval = cities.find("Houston");
-            assert.deepEqual(retval, null);
+            assert.isNull(retval);
         });
         it("should return null if list empty", function () {
-            assert.deepEqual(empty.find("foo"), null);
+            assert.isNull(empty.find("foo"));
         });
     });
 
@@ -77,11 +77,11 @@ describe('LinkedList', function () {
     describe("#findPrevious()", function () {
         it("should return null if the item not present", function () {
             var result = cities.findPrevious("Houston");
-            assert.deepEqual(result, null);
+            assert.isNull(result);
         });
         it("should return null if list is empty", function () {
             var result = empty.findPrevious("Topeka");
-            assert.deepEqual(result, null);
+            assert.isNull(result);
         });
         it("should return the previous node", function () {
             var result = cities.findPrevious("Chicago");
