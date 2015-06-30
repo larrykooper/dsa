@@ -82,11 +82,9 @@ LinkedList.prototype.insertAfter = function(newElement, item) {
 LinkedList.prototype.insertAtBeginning = function(newElement) {
     var newNode = new Node(newElement);
     var firstNode = this.head;
-    if (firstNode === null) {
-        this.head = newNode;
-    } else {
-        newNode.next = firstNode.next;
-        firstNode.next = newNode;
+    this.head = newNode;
+    if (firstNode !== null) {
+        newNode.next = firstNode;
     }
 };
 
@@ -95,8 +93,8 @@ LinkedList.prototype.insertAtBeginning = function(newElement) {
 //
 LinkedList.prototype.display = function() {
     var currNode = this.head;
-    while (!(currNode.next == null)) {
-        console.log(currNode.next.element);
+    while (!(currNode === null)) {
+        console.log(currNode.element);
         currNode = currNode.next;
     }
 };
