@@ -70,6 +70,18 @@ Graph.prototype.showGraph = function() {
 };
 
 /**
+ * Marks all vertices as unvisited
+ *
+ * @method unmark
+ *
+ **/
+Graph.prototype.unmark = function () {
+for (i = 0; i < this.vertices; i++) {
+        this.marked[i] = false; // all vertices are unvisited
+    }
+}
+
+/**
  * Traverse the graph using depth-first search
  *   Uses recursion
  * From Aho, Hopcroft, and Ullman, Data Structures and Algorithms, p. 216
@@ -93,6 +105,42 @@ Graph.prototype.dfs = function(v) {
         if (!this.marked[adjList[w]]) {
             this.dfs(adjList[w]);
         }
+    }
+}
+
+/**
+ * Traverse the graph using breadth-first search
+ *   Uses a queue
+ *
+ *  Time is O(number of edges)
+ *
+ * @method bfs
+ * @params {integer} s: vertex to start breadth-first-search at
+ **/
+Graph.prototype.bfs = function(s) {
+    var v;
+    var w;
+    var size;
+    var i;
+    // The queue tells us where we are at
+    // in the 'depth', and where we have to go next
+    var queue = [];
+    // we visit s
+    this.marked[s] = true;
+    console.log("Visited vertex: " + s);
+    queue.push(s); // add s to end of queue
+    while (queue.length > 0) {
+        v = queue.shift(); // removes from front of queue
+        size = this.adj[v].length
+        for (i = 0; i < size; i++) {
+            w = this.adj[v][i];
+            if (!this.marked[w]) {
+                this.marked[w] = true;
+                console.log("Visited vertex: " + w);
+                queue.push(w);
+            }
+        }
+
     }
 }
 

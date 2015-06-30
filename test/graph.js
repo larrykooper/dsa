@@ -15,9 +15,9 @@ graph.addEdge(0,3);
 graph.addEdge(2,4);
 graph.addEdge(3,5);
 
-describe('graph dfs', function () {
-
-    beforeEach(function() {
+describe('Graph', function () {
+    beforeEach(function () {
+        graph.unmark();
         sinon.spy(console, 'log');
     });
 
@@ -31,4 +31,12 @@ describe('graph dfs', function () {
             expect(console.log).to.have.callCount(6);
         });
     });
+
+    describe('bfs', function() {
+        it('visits all vertices', function () {
+            graph.bfs(0);
+            expect(console.log).to.have.callCount(6);
+        });
+    });
+
 });
