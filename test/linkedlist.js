@@ -1,6 +1,6 @@
 var LinkedList = require('../src/linkedlist');
-
-var assert = require("assert");
+var chai = require('chai');
+var assert = chai.assert;
 
 var cities = new LinkedList();
 var empty = new LinkedList();
@@ -59,7 +59,7 @@ describe('LinkedList', function () {
         });
         it("should fail with empty list", function () {
             var result = findRecurs(empty, "Houston");
-            assert(!result);
+            assert.notOk(result);
         });
     });
 
@@ -70,7 +70,7 @@ describe('LinkedList', function () {
         });
         it("should return false if searched item not found", function () {
             var retval = cities.insertAfter("London", {}, "Rome");
-            assert(!retval);
+            assert.notOk(retval);
         });
     });
 

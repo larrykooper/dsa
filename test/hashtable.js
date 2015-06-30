@@ -1,5 +1,6 @@
 var HashTable = require('../src/hashtable');
-var assert = require("assert");
+var chai = require('chai');
+var assert = chai.assert;
 
 var hashtable = new HashTable();
 var empty = new LinkedList();
@@ -60,7 +61,7 @@ describe('HashTable', function () {
 
     describe("#isEmpty", function () {
         it("should return false if not empty", function () {
-            assert.ok(!hashtable.isEmpty());
+            assert.notOk(hashtable.isEmpty());
         });
         it("should return true if empty", function () {
             assert.ok(empty.isEmpty());
