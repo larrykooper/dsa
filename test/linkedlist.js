@@ -83,6 +83,10 @@ describe('LinkedList', function () {
             var result = empty.findPrevious("Topeka");
             assert.deepEqual(result, null);
         });
+        it("should return the previous node", function () {
+            var result = cities.findPrevious("Chicago");
+            assert.strictEqual(result.key, 'New York');
+        });
     });
 
     describe("#size()", function () {

@@ -48,4 +48,13 @@ describe('HashTable', function () {
             assert.strictEqual(hashtable.size(), 3);
         });
     });
+
+    describe("#delete()", function () {
+        it("should delete an item", function () {
+            var result = hashtable.delete('Profire Energy');
+            assert.ok(result);
+            assert.strictEqual(hashtable.size(), 2);
+        });
+    });
+
 });

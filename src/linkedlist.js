@@ -67,17 +67,33 @@ LinkedList.prototype.findPos = function(key) {
 
 // findPrevious
 // returns the node just before the first one containing key 'key'
-// returns null if key not present
+// if key not present, returns null
+// if key is first one, returns the string 'first'
 LinkedList.prototype.findPrevious = function(key) {
-    var currNode = this.head;
+    var currNode, prevNode;
+    if (this.isEmpty()) {
+        return null;
+    }
+    currNode = this.head;
+    if (currNode.key === key) {
+        return 'first';
+    }
+    prevNode = currNode;
+    currNode = currNode.next;
     while (!(currNode == null) && (currNode.key != key)) {
         currNode = currNode.next;
+        prevNode = prevNode.next;
     }
-    return currNode;
+    if (!currNode) {
+        return null;
+    } else {
+        return prevNode;
+    }
 };
 
 // Inspired by Skiena page 69
 // Recursive implementation of find
+// finds the first node that contains a specified key
 doFindRecurs = function(node, key) {
     if (node == null) {
         return null;
@@ -139,14 +155,21 @@ LinkedList.prototype.display = function() {
 // removes the first node with key 'key'
 // returns true if removed, false if not
 LinkedList.prototype.remove = function(key) {
+    var firstNode;
     var prevNode = this.findPrevious(key);
-    if (prevNode) {
-        if (!(prevNode.next == null)) {
-            prevNode.next = prevNode.next.next;
-        }
+    if (prevNode === 'first') {  // We are removing the first node
+        firstNode = this.head;
+        this.head = firstNode.next;
         return true;
     } else {
-        return false;
+        if (prevNode) {
+            if (!(prevNode.next == null)) {
+                prevNode.next = prevNode.next.next;
+            }
+            return true;
+        } else { // not found
+            return false;
+        }
     }
 }
 
