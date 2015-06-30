@@ -32,6 +32,23 @@ hashFunc = function(string) {
     return parseInt(total);
 }
 
+HashTable.prototype.clear = function () {
+    var i, bucket;
+    for (i = 0; i < tableLength; i++) {
+        bucket = this.table[i];
+        bucket.clear();
+    }
+}
+
+// Delete the item with given key
+// Returns true if deleted, false if not found
+HashTable.prototype.delete = function(key) {
+    var pos = hashFunc(key);
+    var bucket = this.table[pos];
+    var result = bucket.remove(key);
+    return result;
+}
+
 HashTable.prototype.insert = function(key, data) {
     var pos = hashFunc(key);
     var bucket = this.table[pos];
@@ -59,6 +76,16 @@ HashTable.prototype.showDistro = function () {
         bucket.display();
         process.stdout.write("\n");
     }
+}
+
+HashTable.prototype.size = function () {
+    var i, bucket;
+    var total = 0;
+    for (i = 0; i < tableLength; i++) {
+        bucket = this.table[i];
+        total += bucket.size();
+    }
+    return total;
 }
 
 module.exports = HashTable;

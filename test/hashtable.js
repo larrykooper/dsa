@@ -31,12 +31,21 @@ var profireEnergy = {
 };
 
 describe('HashTable', function () {
+    beforeEach(function() {
+        hashtable.clear();
+        hashtable.insert('New York Times', nyt);
+        hashtable.insert('marybeth.nyc', marybethNyc);
+        hashtable.insert('Profire Energy', profireEnergy);
+    });
+
     describe("#insert()", function() {
-        it("should insert stuff", function () {
+        it("should insert objects correctly", function () {
             var d;
-            hashtable.insert('New York Times', nyt);
             d = hashtable.get('New York Times');
-            assert.deepEqual(d, nyt)
+            assert.deepEqual(d, nyt);
+        });
+        it("should insert the right number of objects", function () {
+            assert.strictEqual(hashtable.size(), 3);
         });
     });
 });
