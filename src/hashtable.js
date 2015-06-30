@@ -100,6 +100,17 @@ HashTable.prototype.get = function(key) {
 };
 
 /**
+ * Determines whether hash table is empty
+ *
+ * @method isEmpty
+ *
+ * @return {Boolean} True if empty, false if not empty
+**/
+HashTable.prototype.isEmpty = function () {
+    return (this.size === 0);
+}
+
+/**
  * Displays all buckets in the hashtable and their keys
  *
  * @method showDistro

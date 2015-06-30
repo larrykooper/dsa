@@ -2,6 +2,7 @@ var HashTable = require('../src/hashtable');
 var assert = require("assert");
 
 var hashtable = new HashTable();
+var empty = new LinkedList();
 
 var nyt = {
     name: "New York Times",
@@ -54,6 +55,15 @@ describe('HashTable', function () {
             var result = hashtable.delete('Profire Energy');
             assert.ok(result);
             assert.strictEqual(hashtable.size(), 2);
+        });
+    });
+
+    describe("#isEmpty", function () {
+        it("should return false if not empty", function () {
+            assert.ok(!hashtable.isEmpty());
+        });
+        it("should return true if empty", function () {
+            assert.ok(empty.isEmpty());
         });
     });
 
