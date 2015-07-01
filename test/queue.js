@@ -42,4 +42,10 @@ describe('Queue', function () {
         });
     });
 
+    describe('isEmpty', function () {
+        it('should return false when queue not empty', function () {
+            assert.notOk(q.isEmpty());
+        });
+    });
+
 });
