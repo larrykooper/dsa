@@ -14,7 +14,7 @@ Stack.prototype.push = function(element) {
 
 // returns null if stack empty
 Stack.prototype.pop = function() {
-    if (this.isEmpty) {
+    if (this.isEmpty()) {
         return null;
     }
     var elem = this.dataStore[this.top-1];
@@ -24,7 +24,7 @@ Stack.prototype.pop = function() {
 
 // returns null if stack is empty
 Stack.prototype.peek = function() {
-    if (this.isEmpty) {
+    if (this.isEmpty()) {
         return null;
     }
     // We subtract one since arrays are zero based
